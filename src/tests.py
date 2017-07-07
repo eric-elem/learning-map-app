@@ -2,7 +2,7 @@ import unittest
 
 from src.skill import InvalidInputError, Skill
 from src.user import User
-from src import task
+from src.task import Task
 
 
 class TestSkillMethods(unittest.TestCase):
@@ -44,15 +44,14 @@ class TestTaskClass(unittest.TestCase):
     """
 
     def setUp(self):
-        self.a_task = task
+        self.a_task = Task()
         self.a_task.Skill_Pool.clear()
-        self.a_task.add_skill("Python")
+        self.a_task.add_skill("python")
+        self.python_skill = Skill('python')
+
 
     def test_add_skill(self):
-        self.assertTrue('Python' in self.a_task.Skill_Pool, msg="There should be a skill named 'Python' in tasks")
-
-    def test_view_skills(self):
-        self.assertEqual(['Python'], self.a_task.view_skills(), msg="Should return the Skill_pool")
+        self.assertEqual('python', self.a_task.Skill_Pool[0].name, msg="There should be a skill named 'python' in tasks")
 
     def test_studied_invalid_input(self):
         self.assertEqual('Add skill first', self.a_task.studied('Javascript'), msg="Should first add a skill before marking it as studied")
