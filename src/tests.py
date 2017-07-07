@@ -12,3 +12,7 @@ class TestSkillMethods(unittest.TestCase):
         bad_input = ""
         with self.assertRaises(InvalidInputError):
             skill = Skill(bad_input)
+
+
+if __name__ == '__main__':
+    unittest.main()
