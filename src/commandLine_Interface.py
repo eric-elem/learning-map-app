@@ -1,5 +1,8 @@
 from __future__ import print_function
 
+from src.task import Task
+
+tasks = Task()
 
 print("_______________________________________________")
 print(" ")
@@ -24,13 +27,14 @@ print("__________________________________________________")
 option_input = input("Enter Option: ")  #options
 print(" ")
 if option_input == 'a':
-    print("Added Skill")
+    ans = input("What would you like to learn?")
+    tasks.add_skill(ans)
 elif option_input == 'b':
-    print("view added")
+    print(tasks.view_skills())
 elif option_input == 'c':
     print("view studied skill")
 elif option_input == 'd':
-    print("show learning progress")
+    print(tasks.progress_bar())
 else:
     print("Sorry Option Unvailable: :please input in letters e.g a")                
 

@@ -46,6 +46,19 @@ class Task(object):
     def view_not_studied(self):
         return self.skills['Not yet studied this skill']
 
+    def progress_bar(self):
+
+        skills_finished = sum([skill.is_done for skill in self.Skill_Pool])
+        number_of_skills_added = len(self.Skill_Pool)
+        progress = skills_finished // number_of_skills_added
+        stars_to_print = progress * 20
+        progress_str = "[{done}{not_done}] {percent}%".format(done="#"*stars_to_print,
+                                                            not_done=" "*(20-stars_to_print),
+                                                            percent=progress*100)
+
+
+
+
 if __name__ == "__main__":
     n = Task()
     n.add_skill("python")
