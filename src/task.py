@@ -55,6 +55,7 @@ class Task(object):
         progress_str = "[{done}{not_done}] {percent}%".format(done="#"*stars_to_print,
                                                             not_done=" "*(20-stars_to_print),
                                                             percent=progress*100)
+        return progress_str
 
 
 
